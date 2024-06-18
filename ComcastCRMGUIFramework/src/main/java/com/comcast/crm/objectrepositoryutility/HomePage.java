@@ -20,7 +20,14 @@ public class HomePage {
    @FindBy(linkText="Contacts")
    private WebElement contlnk;
    
-   @FindBy(linkText="Campaigns")
+   @FindBy(linkText="Products")
+   private WebElement productlnk;
+   
+   public WebElement getProductlnk() {
+	return productlnk;
+}
+
+@FindBy(linkText="Campaigns")
    private WebElement camplnk;
    
    @FindBy(linkText="More")
