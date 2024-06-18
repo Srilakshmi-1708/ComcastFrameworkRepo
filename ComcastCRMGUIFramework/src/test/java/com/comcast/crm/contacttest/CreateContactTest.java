@@ -38,6 +38,7 @@ public class CreateContactTest extends BaseClass {
 	@Test(groups="smokeTest")
 	public void createContactTest() throws Throwable{
 
+		//github
 		//read testScript from Excel file
 		UtilityClassObject.getTest().log(Status.INFO, "read data from Excel");
 		String lastname=eLib.getDataFromExcel("contact", 1, 2) + jLib.getRandomNumber();
