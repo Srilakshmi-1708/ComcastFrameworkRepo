@@ -46,7 +46,8 @@ public class BaseClass {
 	@BeforeClass(groups= {"smokeTest","regressionTest"})
 	public void configBC() throws Throwable {
 		System.out.println("==Launch the BROWSER==");
-		String BROWSER=fLib.getDataFromPropertiesFile("browser");
+		//String BROWSER=fLib.getDataFromPropertiesFile("browser");
+		String BROWSER=System.getProperty("browser",fLib.getDataFromPropertiesFile("browser"));
         
 	     if(BROWSER.equals("chrome")) {
 	    	 driver=new ChromeDriver();
@@ -68,9 +69,12 @@ public class BaseClass {
 	public void configBM() throws Throwable {
 		System.out.println("=Login=");
 		LoginPage lp=new LoginPage(driver);
-		String URL=fLib.getDataFromPropertiesFile("url");
-		String USERNAME=fLib.getDataFromPropertiesFile("username");
-		String PASSWORD=fLib.getDataFromPropertiesFile("password");
+		String URL=System.getProperty("url",fLib.getDataFromPropertiesFile("url"));
+		String USERNAME=System.getProperty("url",fLib.getDataFromPropertiesFile("username"));
+		String PASSWORD=System.getProperty("url",fLib.getDataFromPropertiesFile("password"));
+		//String URL=fLib.getDataFromPropertiesFile("url");
+		//String USERNAME=fLib.getDataFromPropertiesFile("username");
+		//String PASSWORD=fLib.getDataFromPropertiesFile("password");
 		lp.loginToApp(URL, USERNAME, PASSWORD);
 	}
 	
