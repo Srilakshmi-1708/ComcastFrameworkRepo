@@ -26,8 +26,8 @@ driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	 Set<String> set=driver.getWindowHandles();
 	 Iterator<String> it=set.iterator();
 	 
-	 while(it.hasNext()) {
-		String windowID=it.next();
+	 while(it.hasNext()) { 
+		String windowID=it.next(); 
 		driver.switchTo().window(windowID);
 		
 		String actUrl=driver.getCurrentUrl();

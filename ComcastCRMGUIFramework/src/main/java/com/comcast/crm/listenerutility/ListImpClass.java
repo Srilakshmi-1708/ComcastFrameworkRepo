@@ -62,7 +62,7 @@ public class ListImpClass extends BaseClass implements ITestListener,ISuiteListe
 		test.log(Status.PASS,result.getMethod().getMethodName()+"==> COMPLETED <==" );
 	}
 
-	public void onTestFailure(ITestResult result) {
+	  public void onTestFailure(ITestResult result) {
 		String testName=result.getMethod().getMethodName();
 		TakesScreenshot t=(TakesScreenshot)sdriver;
 		String filePath=t.getScreenshotAs(OutputType.BASE64);
@@ -74,7 +74,7 @@ public class ListImpClass extends BaseClass implements ITestListener,ISuiteListe
 	}
 
 	public void onTestSkipped(ITestResult result) {
-
+  
 
 	}
 

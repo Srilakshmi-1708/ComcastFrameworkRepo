@@ -15,6 +15,7 @@ import org.testng.annotations.Parameters;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.comcast.crm.generic.databaseutility.DataBaseUtility;
 import com.comcast.crm.generic.fileutility.ExcelUtility;
 import com.comcast.crm.generic.fileutility.FileUtility;
 import com.comcast.crm.generic.webdriverutility.JavaUtility;
@@ -31,15 +32,16 @@ public class BaseClass {
 	public ExcelUtility eLib=new ExcelUtility();
 	public JavaUtility jLib=new JavaUtility();
 	public WebDriverUtility wLib=new WebDriverUtility();
+	public DataBaseUtility dLib=new DataBaseUtility();
 	public WebDriver driver=null;
 	public static WebDriver sdriver=null;
 	
 	
  	@BeforeSuite(groups= {"smokeTest","regressionTest"})
-	public void configBS()  {
+	public void configBS() throws Throwable  {
 		 System.out.println("===Connect to DB,Report Config===");
 		//have to connect to DB
-		
+		dLib.getDBConnection(null, null, null);
 		}
  	
     @Parameters("BROWSER")
@@ -53,7 +55,7 @@ public class BaseClass {
 	    	 driver=new ChromeDriver();
 	     }
 	     else if(BROWSER.equals("firefox")) {
-	    	 driver=new FirefoxDriver();
+	    	 driver=new FirefoxDriver(); 
 	     }
 	     else if(BROWSER.equals("edge")) {
 	    	 driver=new EdgeDriver();
@@ -95,7 +97,7 @@ public class BaseClass {
 	public void configAS() {
 		System.out.println("===Close DB,Report backUP===");
 		//close DBConnection
-		
+		dLib.closeDBConection();
 		}
 	
 	

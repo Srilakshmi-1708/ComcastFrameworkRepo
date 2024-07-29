@@ -42,7 +42,7 @@ public class DeleteOrgTest {
 		String PASSWORD=fLib.getDataFromPropertiesFile("password");
 		
 	      //test script from Excel file
-		String orgName=eLib.getDataFromExcel("org", 10, 2)+jLib.getRandomNumber();
+		String orgName=eLib.getDataFromExcel("org", 7, 2)+jLib.getRandomNumber();
 	
 	     WebDriver driver=null;
 	        
